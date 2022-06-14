@@ -1,0 +1,23 @@
+<%- include('../includes/header.ejs')%>
+</head>
+<body>
+    <%- include('../includes/navigation.ejs')%>
+    <main>
+        <br><br><br>
+        <div class="text-center image-container">
+            <img src="<%=product.image%>" alt="Product image" class="descImage">  
+        </div>    
+        <h1 class="text-center text-danger mt-0"><%=product.productName%></h1>
+        <hr>
+        <p class="text-center text-danger"><b>Price: <%=product.unitSellPrice%> Tk.</b> </p>
+        <p class="text-center">Size: <%=product.productSize%> <%=product.unitMeasure%>.</p>
+        <p class="text-center text-danger"><b>In Stock:</b> <%=product.quantity%></p>
+        <p class="text-center">Expire date: <%=product.expireDate%></p>
+        <p class="text-center">Manufacture Date: <%=product.manufactureDate%></p>
+    
+        <div class="col-12 lead text-center ">
+            <p><%=product.description%></p>
+        </div>
+        
+    </main>
+    <%- include('../includes/footer.ejs')%>    

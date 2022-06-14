@@ -1,0 +1,31 @@
+<%- include('../includes/header.ejs')%>
+</head>
+<body>
+    <%- include('../includes/navigation.ejs')%>
+    <main>
+        <br><br><br>
+        <div class="text-center image-container">
+            <img src="<%=product.image%>" alt="Product image" class="descImage">  
+        </div>    
+        <h1 class="text-center text-danger mt-0"><%=product.productName%></h1>
+        <hr>
+        <p class="text-center text-danger"><b>Price: <%=product.unitSellPrice%> Tk.</b> </p>
+        <p class="text-center">Size: <%=product.productSize%> <%=product.unitMeasure%>.</p>
+        <p class="text-center text-danger"><b>In Stock:</b> <%=product.quantity%></p>
+        <p class="text-center">Expire date: <%=product.expireDate%></p>
+        <p class="text-center">Manufacture Date: <%=product.manufactureDate%></p>
+    
+        <div class="col-12 lead text-center ">
+            <p><%=product.description%></p>
+        </div>
+        <div class="d-flex justify-content-center mr-2">
+            <form action="/admin/product-delete" method="POST" class="text-center">
+                <input type="hidden" name="productId" value="<%=product._id%>">
+                <input type="submit" class="btn btn-warning" value="Delete">
+            </form>
+            <div class="text-center ml-2">
+                <a href="/admin/productEdit/<%=product._id%>" class="text-center btn btn-primary">Edit</a>
+            </div>
+        </div>
+    </main>
+    <%- include('../includes/footer.ejs')%>    

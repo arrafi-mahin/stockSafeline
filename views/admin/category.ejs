@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('../includes/adminHeader.ejs')%>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+
+       <%-include('../includes/adminSidebar.ejs')%>
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow"
+          >
+            <!-- Sidebar Toggle (Topbar) -->
+            <button
+              id="sidebarToggleTop"
+              class="btn btn-link d-md-none rounded-circle mr-3"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <%-include('../includes/adminNav.ejs')%>
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <h1 class="h3 mb-0 text-gray-800">Add New Category</h1>
+              
+            </div>
+            <!-- Content Row -->
+            <div class="row">
+              <!-- Content Column -->
+              <div class="col-lg-12 mb-4">
+                <div class="card bg-white mb-4">
+                  <div class="card-body">
+                    <h5>Basic information</h5>
+                    <form action="/admin/addNewCategory" method="POST">
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <label for="cName">Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="cName"
+                            placeholder="Category Name"
+                            name="categoryName"
+                          />
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="slug">Image Link</label>
+                          <div class="input-group mb-2 mr-sm-2">
+                           
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="slug"
+                             name="imageLink"
+                             required
+                            />
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="buttons">
+                        <!-- Update Button -->
+                        <button type="submit" class="btn btn-success shadow">
+                          <i class="pr-2 fa-solid fa-floppy-disk"></i>Save
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            <!-- Content Row -->
+            <div class="row ">
+              <!-- Content Column -->
+              <div class="col-lg-12 mb-4">
+                <!-- Order Chart -->
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <% if(category.length>0) {%>
+                      <table
+                        class="table table-bordered"
+                        id="dataTable"
+                        width="100%"
+                        cellspacing="0"
+                      >
+                        <thead>
+                          <tr>
+                           
+                            <th>Category Name</th>
+                            <th>Image</th>
+                            <th>Edit</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                           <%category.forEach( a=>{%> 
+                            
+                          <tr>
+                            <form action="/admin/categoryUpdate" method="POST">
+                            <td><input type="text" value="<%=a.name%>" name="categoryName" class="form-control"></td>
+                            <td><input type="text" value="<%=a.imageLink%>" name="imageLink" class="form-control"></td>
+
+                           <td>
+                             <input type="hidden" name="categoryId" value="<%=a._id%>">
+                              <button type="submit" class="btn btn-sm btn-success">
+                                Update
+                              </button>
+                            </td>
+                          </form>
+                          </tr>
+                        
+                          <%})%>
+                     
+                        </tbody>
+                      </table>
+                      <%} else {%>
+                        <h1>No Category found</h1>
+                        <%}%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <%- include('../includes/adminFooter.ejs')%>
+  </body>
+</html>

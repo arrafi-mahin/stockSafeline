@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include('../includes/adminHeader.ejs')%>
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+    <%-include('../includes/adminSidebar.ejs')%>
+    
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow"
+          >
+            <!-- Sidebar Toggle (Topbar) -->
+            <button
+              id="sidebarToggleTop"
+              class="btn btn-link d-md-none rounded-circle mr-3"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+
+           <%-include('../includes/adminNav.ejs')%>
+
+           <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <h1 class="h3 mb-0 text-gray-800">Orders List</h1>
+              <div class="buttons">
+                <!-- Update Button -->
+                <button type="button"
+                type="button"
+                  data-toggle="modal"
+                  data-target="#addModalCenter"
+                class="btn btn-warning pr-2">
+                  New Order
+                </button>
+              </div>
+            </div>
+            <!-- Content Row -->
+            <div class="row">
+              <!-- Content Column -->
+              <div class="col-lg-12 mb-4">
+                <!-- Order Chart -->
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      Order Table
+                    </h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-bordered"
+                        id="dataTable"
+                        width="100%"
+                        cellspacing="0"
+                      >
+                        <thead>
+                          <tr>
+                            <th>
+                              <input
+                                type="checkbox"
+                                value=""
+                                id="flexCheckDefault"
+                              />
+                            </th>
+                            <th>Number</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Paid</th>
+                            <th>Status</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <input
+                                type="checkbox"
+                                value=""
+                                id="flexCheckDefault"
+                              />
+                            </td>
+                            <td>
+                              <a href="#">#<span>3201</span></a>
+                            </td>
+                            <td><span>13-04-2022</span></td>
+                            <td>
+                              <div class="">Jassica Moore</div>
+                            </td>
+                            <td>
+                              <span class="badge badge-success">Yes</span>
+                            </td>
+                            <td>
+                              <span class="badge badge-danger">New</span>
+                            </td>
+                            <td><span>3</span> items</td>
+                            <td><span>200</span> Tk.</td>
+                            <td>
+                              <div class="dropdown">
+                                <button
+                                  class="btn btn-sa-muted btn-sm"
+                                  type="button"
+                                  id="CatDropdown"
+                                  data-toggle="dropdown"
+                                  aria-expanded="false"
+                                  aria-level="More"
+                                >
+                                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                                <ul
+                                  class="dropdown-menu dropdown-menu-end"
+                                  aria-labelledby=""
+                                >
+                                  <li>
+                                    <a
+                                      class="dropdown-item"
+                                      data-toggle="modal"
+                                      data-target="#addModalCenter"
+                                      >Edit</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input
+                                type="checkbox"
+                                value=""
+                                id="flexCheckDefault"
+                              />
+                            </td>
+                            <td>
+                              <a href="#">#<span>3201</span></a>
+                            </td>
+                            <td><span>13-04-2022</span></td>
+                            <td>
+                              <div class="">Jassica Moore</div>
+                            </td>
+                            <td>
+                              <span class="badge badge-warning">Partial</span>
+                            </td>
+                            <td>
+                              <span class="badge badge-success">Shipped</span>
+                            </td>
+                            <td><span>3</span> items</td>
+                            <td><span>200</span> Tk.</td>
+                            <td>
+                              <div class="dropdown">
+                                <button
+                                  class="btn btn-sa-muted btn-sm"
+                                  type="button"
+                                  id="CatDropdown"
+                                  data-toggle="dropdown"
+                                  aria-expanded="false"
+                                  aria-level="More"
+                                >
+                                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                                <ul
+                                  class="dropdown-menu dropdown-menu-end"
+                                  aria-labelledby=""
+                                >
+                                  <li>
+                                    <a
+                                      class="dropdown-item"
+                                      data-toggle="modal"
+                                      data-target="#addModalCenter"
+                                      >Edit</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input
+                                type="checkbox"
+                                value=""
+                                id="flexCheckDefault"
+                              />
+                            </td>
+                            <td>
+                              <a href="#">#<span>3201</span></a>
+                            </td>
+                            <td><span>13-04-2022</span></td>
+                            <td>
+                              <div class="">Jassica Moore</div>
+                            </td>
+                            <td>
+                              <span class="badge badge-light">No</span>
+                            </td>
+                            <td>
+                              <span class="badge badge-primary">Pending</span>
+                            </td>
+                            <td><span>3</span> items</td>
+                            <td><span>200</span> Tk.</td>
+                            <td>
+                              <div class="dropdown">
+                                <button
+                                  class="btn btn-sa-muted btn-sm"
+                                  type="button"
+                                  id="CatDropdown"
+                                  data-toggle="dropdown"
+                                  aria-expanded="false"
+                                  aria-level="More"
+                                >
+                                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                                <ul
+                                  class="dropdown-menu dropdown-menu-end"
+                                  aria-labelledby=""
+                                >
+                                  <li>
+                                    <a
+                                      class="dropdown-item"
+                                      data-toggle="modal"
+                                      data-target="#addModalCenter"
+                                      >Edit</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+        <div
+                class="modal fade"
+                id="addModalCenter"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="addModalCenterTitle"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                      <h5 class="modal-title" id="addModalCenterTitle">
+                        Add New Order
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="POST" action="/admin/addNewProduct">
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="pTitle">Shop Name</label>
+                            <br>
+                            <select
+                                  class="btn btn-outline-secondary dropdown-toggle"
+                                  id="pUnitType"
+                                  name="shopName"
+                                  required
+                                >
+                                  <option value="Gram">Safeline</option>
+                                
+                                </select>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="pBrand">Delivery Address</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="pBrand"
+                              name="deliveryAddress"
+                              required
+                            />
+                          </div>
+                          <div class="form-group col-md-8">
+                            <label for="pUnitType">Product Name</label>
+                    
+                              
+                                <select
+                                  class="custom-select mr-sm-2"
+                                  id="pUnitType"
+                                  name="productId"
+                                  required
+                                >
+                                  <option value="Savlon" selected>Savlon</option>
+                                  
+                                </select>
+                              
+                              
+                            
+                          </div>
+                          
+                          <div class="form-group col-md-4">
+                            <label for="Quantity">Quantity</label>
+
+                            <input
+                              type="number"
+                              class="form-control"
+                              id="Quantity"
+                              placeholder=""
+                              step="0.01"
+                              name="quantity"
+                              required
+                            />
+                          </div>
+                          
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="pArriveDate">Arrival Date</label>
+                            <input
+                              type="date"
+                              class="form-control"
+                              id="pArriveDate"
+                              placeholder=""
+                              name="arrivalDate"
+                            />
+                          </div>
+                          
+                          
+                          <div>
+                            
+                            <input
+                              type="hidden"
+                              class="form-control"
+                          
+                                                         
+                              name="userId"
+                            />
+                          </div>
+                          
+                          
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button type="submit" class="btn btn-primary">
+                            Save changes
+                          </button>
+                        </div>
+                        
+                      </form>
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
+
+   <%-include('../includes/adminFooter.ejs')%>    
+</body>
+</html>

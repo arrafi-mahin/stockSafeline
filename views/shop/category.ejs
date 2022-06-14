@@ -1,0 +1,40 @@
+<%- include('../includes/header.ejs')%>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs')%>
+    <%- include('../includes/cover.ejs')%>
+    <div class="row cat-heading d-flex align-items-center">
+            
+        <div class="catagory-name"><a class="category-card-heading">Hygiene <i class="fas fa-hands-wash icon"></i></a></div>
+      <div class="catagory-expand"><a href="#" class="link btn btn-outline-danger view-more">View More <i class="fas fa-arrow-right"></i></a></div>
+      
+    </div>
+    <% if (products.length>0) {%>
+    <div class="row ">
+       <%products.forEach(product=>{%>
+        <div class="col-6 col-md-4 p-2 d-flex justify-content-center">
+          <div class="card" style="width:170px;">
+            <img class="card-img-top" src="<%=product.image%>"  alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text max-lines"><%=product.productName%></p>
+              <p class="p-price"><b>in Stock: <span id="p-price"><%=product.quantity%></b></p>
+              <p class="p-price"><b>Unit Price: <span id="p-price"><%=product.unitSellPrice%></span> Tk.</b></p>
+              <p class="p-price"><b>Size: <span id="p-price"><%=product.productSize%></span> <%=product.unitMeasure%> </b></p>
+              <form action="/product/:<%=product.productName.replace(' ','-')%>" method="post">
+                <input type="hidden" value="<%=product._id%>" name="productId">
+                <input type="submit" class="btn btn-success" value="Details">
+        
+        </form>
+            </div>
+          </div>
+        </div>
+         
+        <%})%>
+
+      
+    </div> 
+    <%}else {%>
+      <h3 class="text-center text-danger">No product found</h3>
+      <%}%>
+<%- include('../includes/footer.ejs')%>    

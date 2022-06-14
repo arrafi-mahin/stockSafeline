@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../includes/adminHeader.ejs')%>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+      
+      <%-include('../includes/adminSidebar.ejs')%>
+      <!-- Content Wrapper -->
+      <div class="col-8">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow"
+          >
+            <!-- Sidebar Toggle (Topbar) -->
+            <button
+              id="sidebarToggleTop"
+              class="btn btn-link d-md-none rounded-circle mr-3"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <%-include('../includes/adminNav.ejs')%>
+           
+                
+                      <h5 class="mt-5" >
+                        Product Information
+                      </h5>
+                     
+                    <div>
+                      
+                      <form method="POST" action="/admin/updateProduct">
+                        <div class="form-row">
+                          <input type="hidden" name="productId" value="<%=product._id%>">
+                          <div class="form-group col-md-6">
+                            <label for="pTitle">Product Title</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="pTitle"
+                              placeholder="Product Title..."
+                              name="productName"
+                              value="<%=product.productName%>"
+                              required
+                            />
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="pBrand">Brand</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="pBrand"
+                              placeholder="Product Brand..."
+                              name="productBrand"
+                              value="<%=product.productBrand%>"
+                              required
+                            />
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="pUnitType">Unit</label>
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <select
+                                  class="btn btn-outline-secondary dropdown-toggle"
+                                  id="pUnitType"
+                                  name="unitMeasure"
+                                  
+                                  required
+                                >
+                                <option value="<%=product.unitMeasure%>" selected><%=product.unitMeasure%></option>
+                                  <option value="Gram">Gram</option>
+                                  <option value="ML">ML</option>
+                                  <option value="Kg">Kg</option>
+                                  <option value="Litre">Litre</option>
+                                  <option value="Box">Box</option>
+                                  <option value="Pcs">Pcs</option>
+                                </select>
+                              </div>
+                              <input
+                                type="number"
+                                class="form-control"
+                                aria-label="Text input with dropdown button"
+                                placeholder="0"
+                                name="productSize"
+                                step="0.01"
+                                value="<%=product.productSize%>"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="form-group col-md-8">
+                            <label for="pCategory">Category</label>
+                            <select
+                              class="custom-select mr-sm-2"
+                              id="pCategory"
+                              name="productCatagory"
+                              required
+                            >
+                              <option value="<%=product.productCatagory%>" selected><%=product.productCatagory%></option>
+                              <%category.forEach(a=>{%>
+                              <option value="<%=a.name%>"><%=a.name%></option>
+                              <%})%>
+                            </select>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <label for="pDescription"
+                              >Product description</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="pDescription"
+                              placeholder=""
+                              name="description"
+                              value="<%=product.description%>"
+                            />
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="pBuyPrice">Unit Cost</label>
+                            <input
+                              type="number"
+                              class="form-control"
+                              id="pBuyPrice"
+                              placeholder=""
+                              step="0.00"
+                              name="unitCost"
+                              value="<%=product.unitCost%>"
+                              required
+                            />
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="pSellPrice">Sell Price</label>
+
+                            <input
+                              type="number"
+                              class="form-control"
+                              id="pSellPrice"
+                              placeholder=""
+                              step="0.01"
+                              name="unitSellPrice"
+                              value="<%=product.unitSellPrice%>"
+                              required
+                            />
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="Quantity">Quantity</label>
+
+                            <input
+                              type="number"
+                              class="form-control"
+                              id="Quantity"
+                              placeholder=""
+                              step="0.01"
+                              name="quantity"
+                              value="<%=product.quantity%>"
+                              required
+                            />
+                          </div>
+                          <div class="form-group col-md-8">
+                            <label for="imageLink">Image Link</label>
+
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="imageLink"
+                              placeholder=""
+                              name="image"
+                              value="<%=product.image%>"
+                              required
+                            />
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="pArriveDate">Arrival Date</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="pArriveDate"
+                              
+                              name="arrivalDate"
+                              value="<%=product.arrivalDate%>"
+                            />
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="pExpireDate">Expire Date</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="pExpireDate"
+                              
+                              name="expireDate"
+                              value="<%=product.expireDate%>"
+                            />
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="pManufactDate">Manufacture Date</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="pArriveDate"
+                              
+                              name="manufactureDate"
+                              value="<%=product.manufactureDate%>" 
+                            />
+                          </div>
+                          <div>
+                            
+                            <input
+                              type="hidden"
+                              class="form-control"
+                          
+                              value="<%=user._id%>"                           
+                              name="userId"
+                            />
+                          </div>
+                          
+                          
+                        </div>
+                        <div class=" justify-content-center">
+                          
+                          <button type="submit" class="btn btn-primary">
+                            Save changes
+                          </button>
+                        </div>
+                        
+                      </form>
+                      
+                    </div>
+                  
+                  
+    
+
+           
+           <%-include('../includes/adminFooter.ejs')%>

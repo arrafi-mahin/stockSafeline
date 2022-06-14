@@ -1,0 +1,29 @@
+<%- include('../includes/header.ejs')%>
+</head>
+
+<body class="container">
+    <%- include('../includes/navigation.ejs')%>
+    <%- include('../includes/cover.ejs')%>
+    <div class="justify-content-center d-flex mt-5">
+      <%if (category.length>0){%>
+        <%category.forEach(a=>{%>
+           
+      <div class="card">
+        <form action="/category" method="POST" class="text-center">
+          <img class="card-img-top" src="<%=a.imageLink%>" alt="Card image cap">
+
+          <div class="card-body">
+            <h1 class="card-title text-center text-success"><input type="hidden" name="categoryName" value="<%=a.name%>"><%=a.name%></h1>
+          </div>
+          
+            
+            <input type="submit" value="Click" class="btn btn-danger text-center">
+          </form>
+        </div>
+      
+        <%})%>
+       <%} else {%>
+        <h3>No Product category been added yet</h3>
+        <%}%>
+  </div>
+    <%- include('../includes/footer.ejs')%>  

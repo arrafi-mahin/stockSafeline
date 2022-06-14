@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../includes/adminHeader.ejs')%>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+      
+      <%-include('../includes/adminSidebar.ejs')%>
+      <!-- Content Wrapper -->
+      <div class="col-8">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow"
+          >
+            <!-- Sidebar Toggle (Topbar) -->
+            <button
+              id="sidebarToggleTop"
+              class="btn btn-link d-md-none rounded-circle mr-3"
+            >
+              <i class="fa fa-bars"></i>
+              
+            </button>
+            <%-include('../includes/adminNav.ejs')%>
+            <br>
+            <br>
+                      <form action="/admin/customer-edit" method="POST">
+                        <div class="form-row mt-5">
+                          <div class="form-group col-md-6">
+                            <label for="sName">Shop</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="sName"
+                              placeholder="Shop Name"
+                              name="shopName"
+                              value="<%=customer.shopName%>"
+                            />
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="oName">Owner</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="oName"
+                              placeholder="Owner Name"
+                              name="ownerName"
+                              value="<%=customer.ownerName%>"
+                              required
+                            />
+                          </div>
+                        </div>
+                          
+                          <div class="form-group col-md-12">
+                            <label for="slug">Mobile</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">+88</div>
+                              </div>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="slug"
+                                placeholder="017-11118XXX"
+                                name="mobile"
+                                value="<%=customer.mobile%>"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="form-group col-lg-12">
+                            <label for="cDescription">Address</label>
+                            <textarea
+                              class="form-control"
+                              id="cDescription"
+                              rows="3"
+                              name="address"
+                              
+                              required
+                            ><%=customer.address%></textarea>
+                          </div>
+                          <div class="text-center">
+                            <input type="hidden" name="customerId" value="<%=customer._id%>">
+                            <button type="submit" class="btn btn-warning text-center">Update</button>
+                          </div>
+                        </form>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>           
+                
+             
+        </div>
+      </div>        
+                  
+                  
+    
+
+           
+           <%-include('../includes/adminFooter.ejs')%>
+    </body>
+</html>
